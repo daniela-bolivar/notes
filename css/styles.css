@@ -13,29 +13,32 @@ h1 {
   margin-bottom: 0px;
 }
 
-.create-notes-container {
+.create-notes-container form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 input[type='text'] {
-  width: 343px;
-  height: 120px;
+  padding: 16px;
+  color: #7c7c7c;
+  font-size: 24px;
+  width: 311px;
+  height: 88px;
   border-radius: 16px;
   border: 2px solid #4f4f4f;
   margin-top: 16px;
 }
 
 input[type='text']::placeholder {
-  top: 16px;
-  left: 16px;
   position: absolute;
+  top: 16px;
   color: #bdbdbd;
   font-size: 24px;
-
 }
 
 input[type='submit'] {
+  cursor: pointer;
   font-weight: 700;
   font-size: 24px;
   width: 343px;
@@ -48,13 +51,26 @@ input[type='submit'] {
   border: none;
 }
 
+input[type='submit']:hover {
+  background-color: #6b6b6b;
+}
+input[type='submit']:active {
+  background-color: #0f004d;
+}
+
+.error-text {
+  color: darkred;
+  margin: 0px;
+  font-weight: 700;
+}
+
 .notes-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.notes-container div{
+.notes-container div {
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -75,6 +91,7 @@ input[type='submit'] {
 }
 
 .notes-container button {
+  cursor: pointer;
   font-weight: 700;
   color: #4F4F4F;
   font-size: 18px;
@@ -86,25 +103,37 @@ input[type='submit'] {
   align-self: flex-end;
 }
 
+.notes-container button:hover {
+  background-color: #888888;
+  color: white;
+}
+.notes-container button:active {
+  background-color: #0f004d;
+  color: white;
+}
+
 /* Media query for tablet devices */
 @media (min-width: 768px) {
-  body {
-    font-size: 18px;
+  input[type='text'] {
+    width: 700px;
   }
-
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
+  input[type='submit'] {
+    width: 730px;
+  }
+  .notes-container div {
+    width: 700px;
   }
 }
 
 /* Media query for desktop devices */
 @media (min-width: 1024px) {
-  body {
-    font-size: 20px;
+  input[type='text'] {
+    width: 1000px;
   }
-
-  .container {
-    max-width: 960px;
+  input[type='submit'] {
+    width: 1040px;
+  }
+  .notes-container div {
+    width: 1000px;
   }
 }

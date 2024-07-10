@@ -8,17 +8,23 @@ const INITIAL_DATA = [
 const STORE_DATA = localStorage.getItem('newData');
 const LOCALE_DATA = JSON.parse(STORE_DATA);
 
-let notesContainer = document.getElementById('notes-container')
-let noteInput = document.getElementById('noteInput');
-let submitInput = document.getElementById('submitInput');
+const notesContainer = document.getElementById('notes-container')
+const noteInput = document.getElementById('noteInput');
+const submitInput = document.getElementById('submitInput');
+const errorText = document.getElementById('errorText');
 let newData = [...INITIAL_DATA]
 localStorage.setItem('newData', JSON.stringify(newData));
 
 submitInput.addEventListener('click', () => {
-    const newNote = noteInput.value;
-    console.log(newNote)
-    submitNote(newNote);
-    noteInput.value = '';
+    if(noteInput.value !== '') {
+        errorText.textContent = ''
+        const newNote = noteInput.value;
+        console.log(newNote)
+        submitNote(newNote);
+        noteInput.value = '';
+    } else {
+        errorText.textContent = 'Debes escribir una nota antes';
+    }
   });
 
 const removeNote = (elementToRemove, element) => {
