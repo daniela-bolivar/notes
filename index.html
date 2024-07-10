@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <title>Notas</title>
     <meta charset="UTF-8">
@@ -12,15 +12,15 @@
 </head>
 <body>
     <h1>Mis Notas</h1>
-    <section class="create-notes-container">
+    <div class="create-notes-container">
         <form action="javascript:void(0)" method="POST">
             <input type="text" id="noteInput" class="note-input" name="notes" placeholder="Algo para recordar...">
             <p id="errorText" class="error-text"></p>
             <input type="submit" id="submitInput" value="Crear">
         </form>
-    </section>
-    <section id="notes-container" class="notes-container">
-    </section>
+    </div>
+    <div id="notes-container" class="notes-container">
+    </div>
     <script type="module" src="./js/index.js"></script>
 </body>
 </html>
