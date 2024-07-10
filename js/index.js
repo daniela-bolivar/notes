@@ -1,19 +1,7 @@
-const INITIAL_DATA = [
-    'Mi primera nota',
-    'Esta es una nota larga que ocupa más de una línea',
-    'Otra nota de ejemplo',
-    'Última nota de ejemplo'
-]
-
-const STORE_DATA = localStorage.getItem('newData');
-const LOCALE_DATA = JSON.parse(STORE_DATA);
-
 const notesContainer = document.getElementById('notes-container')
 const noteInput = document.getElementById('noteInput');
 const submitInput = document.getElementById('submitInput');
 const errorText = document.getElementById('errorText');
-let newData = [...INITIAL_DATA]
-localStorage.setItem('newData', JSON.stringify(newData));
 
 submitInput.addEventListener('click', () => {
     if(noteInput.value !== '') {
@@ -27,23 +15,31 @@ submitInput.addEventListener('click', () => {
     }
   });
 
+const getParsedStorageData = () => {
+    const storageData = localStorage.getItem('LOCALE_DATA');
+    return JSON.parse(storageData);
+}
+
 const removeNote = (elementToRemove, element) => {
-    newData = newData.filter(element => element !== elementToRemove);
+    const data = getParsedStorageData()
+    const removeDataFilter = data.filter(element => element !== elementToRemove);
     element.remove();
-    localStorage.setItem('newData', JSON.stringify(newData));
+    localStorage.setItem('LOCALE_DATA', JSON.stringify(removeDataFilter));
 }
 
 const submitNote = (noteInput) => {
-    newData.push(noteInput);
-    localStorage.setItem('newData', JSON.stringify(newData));
-    loadNotes([noteInput])
-    console.log(newData);
+    const data = getParsedStorageData()
+    data.push(noteInput);
+    localStorage.setItem('LOCALE_DATA', JSON.stringify(data));
+    loadNotes()
   };
 
 
-const loadNotes = (notes) => {
-    if(notes.length !== 0) {
-    notes.forEach((note) => {
+const loadNotes = () => {
+    const data = getParsedStorageData()
+    notesContainer.innerHTML= ''
+    if(data.length !== 0) {
+    data.forEach((note) => {
             const newCard = document.createElement('div')
             const deleteButton = document.createElement('button')
             const noteText = document.createElement('p')
@@ -61,4 +57,19 @@ const loadNotes = (notes) => {
     }
 }
 
-window.onload = loadNotes(LOCALE_DATA)
+function handleOnLoad() {
+    const INITIAL_DATA = [
+        'Mi primera nota',
+        'Esta es una nota larga que ocupa más de una línea',
+        'Otra nota de ejemplo',
+        'Última nota de ejemplo'
+    ]
+    
+    const STORE_DATA = localStorage.getItem('LOCALE_DATA');
+    if(STORE_DATA === null) {
+        localStorage.setItem('LOCALE_DATA', JSON.stringify(INITIAL_DATA));
+    }
+    loadNotes()
+}
+
+window.onload = handleOnLoad()

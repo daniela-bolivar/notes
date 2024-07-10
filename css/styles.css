@@ -20,6 +20,7 @@ h1 {
 }
 
 input[type='text'] {
+  position: relative;
   padding: 16px;
   color: #7c7c7c;
   font-size: 24px;
