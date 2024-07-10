@@ -1,0 +1,110 @@
+body {
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 32px;
+  margin-bottom: 0px;
+}
+
+.create-notes-container {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='text'] {
+  width: 343px;
+  height: 120px;
+  border-radius: 16px;
+  border: 2px solid #4f4f4f;
+  margin-top: 16px;
+}
+
+input[type='text']::placeholder {
+  top: 16px;
+  left: 16px;
+  position: absolute;
+  color: #bdbdbd;
+  font-size: 24px;
+
+}
+
+input[type='submit'] {
+  font-weight: 700;
+  font-size: 24px;
+  width: 343px;
+  height: 45px;
+  background-color: #4F4F4F;
+  color: white;
+  border-radius: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notes-container div{
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 311px;
+  height: auto;
+  border-radius: 16px;
+  border: 2px solid #4f4f4f;
+  margin-bottom: 16px;
+  justify-content: flex-end;
+}
+
+.notes-container p {
+  margin: 0px;
+  font-size: 24px;
+  text-align: left;
+  line-height: 28.8px;
+  margin-bottom: 16px;
+}
+
+.notes-container button {
+  font-weight: 700;
+  color: #4F4F4F;
+  font-size: 18px;
+  width: 83px;
+  height: 30px;
+  border-radius: 16px;
+  background-color: #E0E0E0;
+  border: none;
+  align-self: flex-end;
+}
+
+/* Media query for tablet devices */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Media query for desktop devices */
+@media (min-width: 1024px) {
+  body {
+    font-size: 20px;
+  }
+
+  .container {
+    max-width: 960px;
+  }
+}
