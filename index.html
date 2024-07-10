@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" href="assets/note-logo.svg">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+<body>
+    <h1>Mis Notas</h1>
+    <section class="create-notes-container">
+        <form action="javascript:void(0)" method="POST">
+            <input type="text" id="noteInput" class="note-input" name="notes" placeholder="Algo para recordar...">
+            <p id="errorText" class="error-text"></p>
+            <input type="submit" id="submitInput" value="Crear">
+        </form>
+    </section>
+    <section id="notes-container" class="notes-container">
+    </section>
+    <script type="module" src="./js/index.js"></script>
+</body>
+</html>
